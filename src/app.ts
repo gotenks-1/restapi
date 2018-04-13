@@ -4,13 +4,25 @@ import { Request, Response } from 'express';
 
 import * as homeController from './controllers/home';
 
-//console.log(config);
-
 export const app = express();
+import mongoose = require('mongoose');
+import dbConfig = require('../db.config.js');
+mongoose.Promise=global.Promise;
 
 app.set('port', 8000);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+mongoose.connect(dbConfig.url).then(()=>{
+  console.log('connected');
+}).catch((err)=>{
+  console.log('failed');
+  console.log(err);
+  process.exit();
+});
+
+
 app.get('/', homeController.index);
 app.listen(app.get('port'), (err) => {
     if(err){ 

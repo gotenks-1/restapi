@@ -20,5 +20,5 @@ module.exports = {
     },
     target: 'node',
     mode:'development',
-    // watch:true
+    watch:true
 };

@@ -6,7 +6,7 @@ import mongoose = require('mongoose');
 
 export let index = (req: Request, res: Response) => {   
   console.log('calling save');
-  createModals();
+  //createModals();
   console.log('save ended');
   res.json({
     message: 'Welcome folks!!.'

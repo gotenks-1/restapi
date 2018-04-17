@@ -1,11 +1,11 @@
 import { Schema } from 'mongoose';
 
 export const ThreadsSchema=new Schema({
-    _id: String,
-    uId:String,
+    _id: Number,
+    uId:{type: String, ref: 'user'},
     subject: String,
     content: String,
-    replies: [String],
+    replies: [{type: Number, ref: 'reply'}],
     type: String,
     status: String
 },{

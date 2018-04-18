@@ -4,6 +4,8 @@ import { Request, Response } from 'express';
 
 import * as homeController from './controllers/home';
 import * as usersController from './controllers/users';
+import * as replyController from './controllers/replies';
+import * as threadController from  './controllers/threads';
 
 export const app = express();
 import mongoose = require('mongoose');
@@ -31,6 +33,15 @@ app.get('/users', usersController.getUsers);
 app.get('/users/:id',usersController.getUserById);
 
 
+//replies
+app.get('/replies', replyController.getReplies);
+app.get('/replies/:id', replyController.getReplyById);
+app.get('/replies/thread/:id',replyController.getRepliesByThreadId);
+
+//threads
+app.get('/threads', threadController.getThread);
+app.get('/threads/:id', threadController.getThreadById);
+app.get('/threads/status/:status', threadController.getThreadsByStatus);
 
 app.listen(app.get('port'), (err) => {
     if(err){ 

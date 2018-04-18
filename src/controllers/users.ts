@@ -16,6 +16,14 @@ export let getUserById = (req: Request, res: Response) => {
     
     User.findById(req.params.id,(err,user)=>{
         res.json(user);
+        // if(user){
+        //     res.json(user);
+        // }else{
+        //     res.json({
+        //         isUserFound:false,
+        //         user:null
+        //     });
+        // }
     });
 }
 

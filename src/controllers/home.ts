@@ -19,13 +19,17 @@ export const getValues = (req:Request, res:Response)=>{
 }
 
 function createModals(){
-  var c1=new Counter({
-    _id: "threadId"
+  // var c1=new Counter({
+  //   _id: "threadId"
+  // });
+  // var c2=new Counter({
+  //   _id: "replyId"
+  // });
+  var c3=new Counter({
+    _id: "editId"
   });
-  var c2=new Counter({
-    _id: "replyId"
-  });
-  c1.save();
-  c2.save();
+  // c1.save();
+  // c2.save();
+  c3.save();
 }
 

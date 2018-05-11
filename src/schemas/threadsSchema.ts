@@ -17,6 +17,10 @@ export const ThreadsSchema=new Schema({
 
 ThreadsSchema.pre('save', function(next){
     var doc = this;
+    if(doc._id){
+        next();
+        return;
+    }
     Counter.findByIdAndUpdate('threadId',{$inc: { seq: 1 } }, function(err,counter){
         if(err){
             return next(err);
